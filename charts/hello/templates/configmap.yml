@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: app-env
+    namespace: "{{ .Release.Namespace }}"
+data:
+    APP_NAME: hello

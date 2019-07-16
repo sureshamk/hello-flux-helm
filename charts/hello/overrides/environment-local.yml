@@ -1,0 +1,550 @@
+tricogadmin:
+  name: tricogadmin
+  image: cr.tricoglocal.com/tricogadmin:latest
+  imagePullPolicy: IfNotPresent
+  ingress:
+    enabled: true
+    annotations:
+      traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path: /newadmin/api
+    hosts:
+    - apps.tricoglocal.com
+
+tricogadmin_client:
+  name: ta-client
+  image: cr.tricoglocal.com/tricogadmin_client:latest
+  imagePullPolicy: IfNotPresent
+  ingress:
+    enabled: true
+    annotations:
+      traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path: /admin/
+    hosts:
+    - apps.tricoglocal.com
+    # path: /admin/lsq
+    # hosts:
+    #   - apps.tricoglocal.com
+
+
+cardionet_client:
+  name: cardionet-c
+  image: cr.tricoglocal.com/tlas_web:latest
+  imagePullPolicy: IfNotPresent
+  ingress:
+    enabled: true
+    annotations:
+      traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path: /
+    hosts:
+      - cardionet.tricoglocal.com
+
+
+
+tricoghubbr:
+  name: tricoghubbr
+  image: cr.tricoglocal.com/tricoghubbr_server:latest
+  imagePullPolicy: IfNotPresent
+  ingress:
+    enabled: true
+    annotations:
+      traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path: /tricoghubbr/api
+    hosts:
+    - apps.tricoglocal.com
+
+tricoghubbr_client:
+  name: tricoghubbr-client
+  image: cr.tricoglocal.com/tricoghubbr_client:latest
+  imagePullPolicy: IfNotPresent
+  ingress:
+    enabled: true
+    annotations:
+      traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path: /tricoghubbr
+    hosts:
+    - apps.tricoglocal.com
+
+
+channel_partner:
+  name: channel-partner
+  image: cr.tricoglocal.com/channel-partner:latest
+  imagePullPolicy: IfNotPresent
+  ingress:
+    enabled: true
+    annotations:
+      traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path: /api
+    hosts:
+    - partnerportal.tricoglocal.com
+
+
+channel_partner_client:
+  name: channel-partner-client
+  image: cr.tricoglocal.com/channel-partner-client:latest
+  imagePullPolicy: IfNotPresent
+  ingress:
+    enabled: true
+    annotations:
+      traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path: /
+    hosts:
+    - partnerportal.tricoglocal.com
+
+hubbr:
+  name: hubbr
+  image: cr.tricoglocal.com/hubbr:latest
+  imagePullPolicy: IfNotPresent
+  ingress:
+    enabled: true
+    annotations:
+      traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path: /hubbr/api
+    hosts:
+    - hubbr.tricoglocal.com
+
+hubbr_client:
+  name: hubbr-client
+  image: cr.tricoglocal.com/hubbr_client:latest
+  imagePullPolicy: IfNotPresent
+  ingress:
+    enabled: true
+    annotations:
+      traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path: /
+    hosts:
+    - hubbr.tricoglocal.com
+
+backend_clinic_app:
+  name: bca
+  image: cr.tricoglocal.com/backend_clinic_app:latest
+  imagePullPolicy: IfNotPresent
+  ingress:
+    enabled: true
+    annotations:
+      traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path: /clinicapp/api
+    hosts:
+     - apps.tricoglocal.com
+
+customerportal:
+  name: customerportal
+  image: cr.tricoglocal.com/customerportal:latest
+  imagePullPolicy: IfNotPresent
+  ingress:
+    enabled: true
+    annotations:
+      traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path: /
+    hosts:
+    - customer.tricoglocal.com
+
+cardioanalyzer:
+  name: cardioanalye
+  image: cr.tricoglocal.com/cardio_analyzer:latest
+  imagePullPolicy: IfNotPresent
+  ingress:
+    enabled: true
+    annotations:
+      traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path: /cardio_analyzer/api
+    hosts:
+    - apps.tricoglocal.com
+
+url_shortner:
+  name: url-short
+  image: cr.tricoglocal.com/url_shortner:latest
+  imagePullPolicy: IfNotPresent
+  ingress:
+    enabled: true
+    annotations:
+      traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path:
+    hosts:
+    - d.tricoglocal.com
+
+deliveryapi_sms:
+  name: smsdelivery
+  image: cr.tricoglocal.com/deliveryapi:latest
+  imageCommadAndArgs:
+    command: ["pm2-runtime"]
+    args: ["process.config.js", "--only","smsdelivery"]
+  imagePullPolicy: IfNotPresent
+  ingress:
+    enabled: true
+    annotations:
+      traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path: /delivery/api
+    hosts:
+    - apps.tricoglocal.com
+    # TODO: needs fix
+    # path: /heartbeat/api
+    # hosts:
+    #   - apps.tricoglocal.com
+cn_server:
+  name: cn-server
+  image: cr.tricoglocal.com/cnserver:latest
+  imagePullPolicy: IfNotPresent
+  ingress:
+    enabled: true
+    annotations:
+      traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path: /
+    hosts:
+    - cnapi.tricoglocal.com
+
+transformer:
+  name: transformer
+  image: cr.tricoglocal.com/transformer:latest
+  imagePullPolicy: IfNotPresent
+  ingress:
+    enabled: true
+    annotations:
+      traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path:
+    hosts:
+    - transformers.tricoglocal.com
+
+dmp:
+  name: dmp
+  image: cr.tricoglocal.com/dmp:latest
+  imagePullPolicy: IfNotPresent
+  ingress:
+    enabled: true
+    annotations:
+      traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path: /api
+    hosts:
+      - dmp.tricoglocal.com
+
+dmp_client:
+  name: dmp-client
+  image: cr.tricoglocal.com/dmp_client:latest
+  imagePullPolicy: IfNotPresent
+  ingress:
+    enabled: true
+    annotations:
+      traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path: /
+    hosts:
+      - dmp.tricoglocal.com
+    # path: /admin/lsq
+    # hosts:
+    #   - apps.tricoglocal.com
+################### TLAS ##############
+
+tlas_admin:
+  name: tlas-api
+  image: cr.tricoglocal.com/tlas_portal:latest
+  imagePullPolicy: IfNotPresent
+  config_name: apps-env
+  ingress:
+    enabled: true
+    annotations:
+      traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path: /api
+    hosts:
+    - tlas.tricoglocal.com
+
+tlas_admin_client:
+  name: tlas-client
+  image: cr.tricoglocal.com/tlas_portal_client:latest
+  imagePullPolicy: IfNotPresent
+  ingress:
+    enabled: true
+    annotations:
+      traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path: /
+    hosts:
+    - tlas.tricoglocal.com
+
+web_viewer:
+  name: web-viewer
+  image: cr.tricoglocal.com/web_viewer:latest
+  imagePullPolicy: IfNotPresent
+  config_name: apps-env
+  ingress:
+    enabled: true
+    annotations:
+      traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path: /webviewer/api
+    hosts:
+    - tlas.tricoglocal.com
+
+adminclinet:
+  name: ta-client-v2
+  image: cr.tricoglocal.com/ta_client:latest
+  imagePullPolicy: IfNotPresent
+  ingress:
+    enabled: true
+    annotations:
+      traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path: /
+    hosts:
+    - ta.tricoglocal.com
+
+adminapi:
+  name: ta-api-v2
+  image: cr.tricoglocal.com/tricogadmin:latest
+  imagePullPolicy: IfNotPresent
+  ingress:
+    enabled: true
+    annotations:
+      traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path: /api
+    hosts:
+      - ta.tricoglocal.com
+
+zoho_service:
+  name: zoho-service
+  image: cr.tricoglocal.com/zohoservice:latest
+  imagePullPolicy: IfNotPresent
+  ingress:
+    enabled: true
+    annotations:
+      traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path: /
+    hosts:
+      - zoho.tricoglocal.com
+
+
+
+#----------
+cloud:
+  name: cloud
+  image: cr.tricoglocal.com/cloud:latest
+  imagePullPolicy: IfNotPresent
+  ingress:
+    enabled: true
+    annotations:
+      traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path: /cloud/api
+    hosts:
+    - cloud.tricoglocal.com
+
+boron:
+  name: boron
+  image: cr.tricoglocal.com/boron_server:latest
+  imagePullPolicy: IfNotPresent
+  ingress:
+    enabled: true
+    annotations:
+      traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path: /boron/api
+    hosts:
+    - cloud.tricoglocal.com
+
+helium:
+  name: helium
+  image: cr.tricoglocal.com/helium:latest
+  imagePullPolicy: IfNotPresent
+  ingress:
+    enabled: true
+    annotations:
+      traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path: /helium/api
+    hosts:
+    - cloud.tricoglocal.com
+
+hydro2:
+  name: hydro2
+  image: cr.tricoglocal.com/hydro2_sw:latest
+  imagePullPolicy: IfNotPresent
+  ingress:
+    enabled: true
+    annotations:
+      traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path: /hydro/api
+    hosts:
+    - cloud.tricoglocal.com
+
+ge:
+  name: ge
+  image: cr.tricoglocal.com/ge:latest
+  imagePullPolicy: IfNotPresent
+  ingress:
+    enabled: true
+    annotations:
+      traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path: /ge/api
+    hosts:
+    - cloud.tricoglocal.com
+queue:
+  name: sqs-queue
+  image: roribio16/alpine-sqs:latest
+  imagePullPolicy: IfNotPresent
+  ingress:
+    enabled: true
+    annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+    path: /
+    hosts:
+      - sqs.tricoglocal.com
+tha:
+  name: tha
+  host: tha.tricoglocal.com
+  image: cr.tricoglocal.com/tha:latest
+  imagePullPolicy: IfNotPresent
+
+dr_api:
+  name: dr-api
+  image: cr.tricoglocal.com/drinfinityserver:latest
+  imagePullPolicy: IfNotPresent
+  config_name: apps-env
+  ingress:
+    enabled: true
+    annotations:
+      traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path: /api
+    hosts:
+    - dr.tricoglocal.com
+
+dr_client:
+  name: dr-client
+  image: cr.tricoglocal.com/dr-client:latest
+  imagePullPolicy: IfNotPresent
+  ingress:
+    enabled: true
+    annotations:
+      traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path: /
+    hosts:
+    - dr.tricoglocal.com
+
+
+migration:
+  enable: true
+  image: cr.tricoglocal.com/db_migrate:latest
+  imagePullPolicy: IfNotPresent
+config_name: tricog-env
+common:
+  cloud:
+    persistentVolume:
+      ## If true,  will create/use a Persistent Volume Claim
+      ## If false, use emptyDir
+      ##
+      enabled: true
+
+      ##  data Persistent Volume access modes
+      ## Must match those of existing PV or dynamic provisioner
+      ## Ref: http://kubernetes.io/docs/user-guide/persistent-volumes/
+      ##
+      accessModes: ReadWriteMany
+
+      ##  data Persistent Volume Claim annotations
+      ##
+      annotations:
+#        "helm.sh/resource-policy": keep
+
+      ##  data Persistent Volume existing claim name
+      ## Requires .persistentVolume.enabled: true
+      ## If defined, PVC must be created manually before volume will be bound
+#      existingClaim: "cloud-storage"
+      existingClaim: "tricog-dev-cloud-storage"
+
+      ##  data Persistent Volume mount root path
+      ##
+      mountPath: /tmp
+
+      ##  data Persistent Volume size
+      ##
+      size: 2Gi
+
+      storageClass: ""
+
+# Dependencies values
+dependencies:
+  mysql:
+    enabled: false
+  redis:
+    enabled: false
+  mongodb:
+    enabled: false
+  elasticsearch:
+    enabled: false
+  phpmyadmin:
+    enabled: false
+  minio:
+    enabled: false
+
+mysql:
+  mysqlHost: "mysql.support.svc.cluster.local"
+  mysqlSsl: "true"
+  mysqlRootPassword: root
+  mysqlUser: user
+  mysqlPassword: password
+  mysqlDatabase: ecg
+  configurationFiles:
+    mysql.cnf: |-
+      [mysqld]
+      skip-host-cache
+      skip-name-resolve
+      sql-mode=""
+    mysql_custom.cnf: |-
+      [mysqld]
+  initializationFiles:
+    initial.sql: |-
+      CREATE DATABASE IF NOT EXISTS ecg DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+      CREATE DATABASE IF NOT EXISTS cloud DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+      CREATE DATABASE IF NOT EXISTS tlas DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+  ssl:
+    enabled: false
+
+redis:
+  usePassword: false
+  customHost: redis-master.support.svc.cluster.local
+mongodb:
+  usePassword: false
+  customHost: mongo-mongodb.support.svc.cluster.local
+minio:
+  nameOverride: minio
+  fullnameOverride: minio
+  accessKey: AKIAIOSFODNN7EXAMPLE
+  secretKey: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+  ingress:
+    enabled: true
+    hosts:
+    - "s3.tricoglocal.com"
+  buckets:
+  - name: dev-data-tricog
+    policy: none
+    purge: false
+  - name: dev-image-tricog
+    policy: none
+    purge: false
+  persistence:
+    enabled: false
+
+adminer:
+  host: adminer.tricoglocal.com

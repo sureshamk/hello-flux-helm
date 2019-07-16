@@ -1,0 +1,33 @@
+---
+apiVersion: flux.weave.works/v1beta1
+kind: HelmRelease
+metadata:
+  name: dev
+  namespace: dev
+  annotations:
+    flux.weave.works/automated: "true"
+    # flux.weave.works/tag.chart-image: glob:dev-*
+spec:
+  releaseName: dev
+  chart:
+    git: git@github.com:sureshamk/hello-flux-helm.git
+    path: charts/hello
+    ref: master
+  values:
+    api:
+      name: api
+      image: sureshamk/hello-flux:latest
+      imagePullPolicy: IfNotPresent
+      ingress:
+        enabled: true
+        annotations:
+          traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+          nginx.ingress.kubernetes.io/rewrite-target: /
+        path: /api
+        hosts:
+        - api.example.com
+
+    # Dependencies values
+    dependencies:
+      minio:
+        enabled: false
