@@ -15,3 +15,5 @@ api:
 dependencies:
   minio:
     enabled: false
+adminer:
+  host: demo2.adminer.uat.tricogapps.com    
