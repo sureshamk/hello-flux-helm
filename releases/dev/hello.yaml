@@ -31,3 +31,5 @@ spec:
     dependencies:
       minio:
         enabled: false
+    adminer:
+      host: admin.example.com    
