@@ -1,4 +1,4 @@
-api:
+hello:
   name: api
   image: sureshamk/hello-flux:latest
   imagePullPolicy: IfNotPresent
@@ -7,7 +7,7 @@ api:
     annotations:
       traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
       nginx.ingress.kubernetes.io/rewrite-target: /
-    path: /api
+    path: /
     hosts:
     - api.example.com
 
