@@ -12,7 +12,7 @@ spec:
   chart:
     git: git@github.com:sureshamk/hello-flux-helm.git
     path: charts/hello
-    ref: master
+    ref: staging
   values:
     hello:
       name: api
