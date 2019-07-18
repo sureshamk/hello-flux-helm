@@ -16,7 +16,7 @@ spec:
   values:
     hello:
       name: api
-      image: sureshamk/hello-flux:version-1.0.7
+      image: sureshamk/hello-flux:version-1.0.8
       imagePullPolicy: IfNotPresent
       ingress:
         enabled: true
