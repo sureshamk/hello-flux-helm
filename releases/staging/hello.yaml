@@ -13,6 +13,7 @@ spec:
     git: git@github.com:sureshamk/hello-flux-helm.git
     path: charts/hello
     ref: staging
+    label: stagingsync
   values:
     hello:
       name: api
