@@ -5,3 +5,4 @@ metadata:
     namespace: "{{ .Release.Namespace }}"
 data:
     APP_NAME: hello
+    env: prod
