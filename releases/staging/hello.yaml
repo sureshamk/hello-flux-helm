@@ -13,7 +13,7 @@ spec:
     git: git@github.com:sureshamk/hello-flux-helm.git
     path: charts/hello
     ref: staging
-    label: stagingsync
+    # label: stagingsync
   valuesFrom:
   - chartFileRef:
       # path within the helm chart (from git repo) where environment-prod.yaml is located

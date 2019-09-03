@@ -1,0 +1,20 @@
+
+hello:
+  name: api
+  image: sureshamk/hello-flux:staging-2
+  imagePullPolicy: IfNotPresent
+  ingress:
+    enabled: true
+    annotations:
+      traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path: /
+    hosts:
+    - api.example.com
+
+# Dependencies values
+dependencies:
+  minio:
+    enabled: false
+adminer:
+  host: admin.example.com
