@@ -14,23 +14,10 @@ spec:
     path: charts/hello
     ref: staging
     label: stagingsync
-  values:
-    hello:
-      name: api
-      image: sureshamk/hello-flux:staging
-      imagePullPolicy: IfNotPresent
-      ingress:
-        enabled: true
-        annotations:
-          traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
-          nginx.ingress.kubernetes.io/rewrite-target: /
-        path: /
-        hosts:
-        - api.example.com
-
-    # Dependencies values
-    dependencies:
-      minio:
-        enabled: false
-    adminer:
-      host: admin.example.com
+  valuesFrom:
+  - chartFileRef:
+      # path within the helm chart (from git repo) where environment-prod.yaml is located
+      path: overrides/environment-staging.yaml # mandatory
+      # If set to true successful retrieval of the values file is no
+      # longer mandatory
+      optional: true
