@@ -1,6 +1,6 @@
 hello:
   name: api
-  image: sureshamk/hello-flux:staging
+  image: sureshamk/hello-flux:staging-2
   imagePullPolicy: IfNotPresent
   ingress:
     enabled: true
