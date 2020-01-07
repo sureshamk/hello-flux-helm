@@ -12,8 +12,5 @@ hello:
     - api.example.com
 
 # Dependencies values
-dependencies:
-  minio:
-    enabled: false
 adminer:
   host: admin.example.com    
