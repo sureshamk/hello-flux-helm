@@ -15,7 +15,6 @@ h3 upgrade -i helm-operator fluxcd/helm-operator \
 h3 upgrade -i flux \
 --set git.url=git@github.com:sureshamk/hello-flux-helm.git \
 --set git.branch=master \
---set git.path=charts/hello \
 --set git.user="master" \
 --set git.email="sureshamk@gmail.com" \
 --set git.label="local_sync" \
