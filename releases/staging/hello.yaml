@@ -6,7 +6,7 @@ metadata:
   namespace: staging
   annotations:
     flux.weave.works/automated: "true"
-    flux.weave.works/tag.chart-image: glob:s*
+    flux.weave.works/tag.hello-flux: glob:s*
 spec:
   releaseName: staging
   chart:
