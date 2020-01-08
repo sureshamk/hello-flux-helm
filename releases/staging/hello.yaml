@@ -17,7 +17,7 @@ spec:
   values:
     hello:
       name: api
-      image: sureshamk/hello-flux:latest
+      image: sureshamk/hello-flux:v1.0.12
       imagePullPolicy: IfNotPresent
       ingress:
         enabled: true
@@ -26,7 +26,7 @@ spec:
           nginx.ingress.kubernetes.io/rewrite-target: /
         path: /
         hosts:
-          - api.example.com
+        - api.example.com
 
     # Dependencies values
     adminer:
