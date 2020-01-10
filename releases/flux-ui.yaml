@@ -21,6 +21,8 @@ spec:
       BASE_API: "/api/"
     ingress:
       enabled: true
+      annotations:
+        traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
       hosts:
         - host: fluxui.sk8test.tk
           paths:
