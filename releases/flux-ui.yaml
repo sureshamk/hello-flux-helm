@@ -10,6 +10,9 @@ spec:
     git: https://github.com/sureshamk/flux-ui.git
     path: flux-ui
     ref: master
+  annotations:
+    flux.weave.works/automated: "true"
+    flux.weave.works/tag.flux-ui: glob:dev*
   values:
     image:
       repository: sureshamk/flux-ui
