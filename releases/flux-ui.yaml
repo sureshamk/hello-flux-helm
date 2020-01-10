@@ -1,0 +1,23 @@
+---
+apiVersion: flux.weave.works/v1beta1
+kind: HelmRelease
+metadata:
+  name: flux-ui
+  namespace: flux
+spec:
+  releaseName: flux-web
+  chart:
+    git: https://github.com/sureshamk/flux-ui.git
+    path: flux-ui
+    ref: master
+  values:
+    frontend:
+    config:
+      END_POINT: "http://flux:3030/"
+      BASE_API: "/api/"
+    ingress:
+      enabled: true
+      hosts:
+        - host: fluxui.sk8test.tk
+          paths:
+            - /
