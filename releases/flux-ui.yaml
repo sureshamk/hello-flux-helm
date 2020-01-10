@@ -16,7 +16,7 @@ spec:
   values:
     image:
       repository: sureshamk/flux-ui
-      tag: latest
+      tag: dev-b126c1d
       #  pullPolicy: Always
       pullPolicy: IfNotPresent
     config:
@@ -27,6 +27,6 @@ spec:
       annotations:
         traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
       hosts:
-        - host: fluxui.sk8test.tk
-          paths:
-            - /
+      - host: fluxui.sk8test.tk
+        paths:
+        - /
