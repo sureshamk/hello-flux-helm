@@ -11,7 +11,11 @@ spec:
     path: flux-ui
     ref: master
   values:
-    frontend:
+    image:
+      repository: sureshamk/flux-ui
+      tag: latest
+      #  pullPolicy: Always
+      pullPolicy: IfNotPresent
     config:
       END_POINT: "http://flux:3030/"
       BASE_API: "/api/"
