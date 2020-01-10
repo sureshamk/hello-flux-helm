@@ -5,7 +5,7 @@ metadata:
   name: flux-ui
   namespace: flux
 spec:
-  releaseName: flux-web
+  releaseName: flux-ui
   chart:
     git: https://github.com/sureshamk/flux-ui.git
     path: flux-ui
