@@ -1,0 +1,12 @@
+---
+creation_rules:
+  # Encrypt with AWS KMS
+#  - kms: 'arn:aws:kms:us-east-1:222222222222:key/111b1c11-1c11-1fd1-aa11-a1c1a1sa1dsl1+arn:aws:iam::222222222222:role/helm_secrets'
+
+  # Encrypt using GCP KMS
+#  - gcp_kms: projects/mygcproject/locations/global/keyRings/mykeyring/cryptoKeys/thekey
+
+  # As failover encrypt with PGP
+  - pgp: '40B6FAEC80FD467E3FE9421019F6A67BB1B8DDBE'
+
+  # For more help look at https://github.com/mozilla/sops

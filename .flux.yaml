@@ -1,7 +1,7 @@
 version: 1
 commandUpdated:
   generators:
-    - command: sops
+    - command: sops -e -i values.yaml
   updaters:
     - containerImage:
         command: image_updater_program

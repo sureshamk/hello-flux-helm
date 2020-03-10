@@ -1,2 +1,5 @@
 .idea
 traefik-helm-chart/
+helm-sops/
+private.rsa
+secrets*.yaml
