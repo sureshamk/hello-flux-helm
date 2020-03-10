@@ -17,6 +17,7 @@ helm upgrade -i flux \
 --set git.user="suresh" \
 --set git.email="sureshamk@gmail.com" \
 --set git.label="local_sync" \
+--set manifestGeneration=true \
 --namespace flux \
 fluxcd/flux
 

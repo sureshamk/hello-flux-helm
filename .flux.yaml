@@ -1,6 +1,9 @@
-version: 1 # must be `1`
-patchUpdated:
+version: 1
+commandUpdated:
   generators:
-    - command: echo 123
-#    - command: kustomize build .
-  patchFile: flux-patch.yaml
+    - command: generator_command
+  updaters:
+    - containerImage:
+        command: image_updater_program
+      policy:
+        command: policy_updater_program
