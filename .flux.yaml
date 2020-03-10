@@ -1,9 +1,4 @@
 version: 1
 commandUpdated:
   generators:
-    - command: sops -e -i values.yaml
-  updaters:
-    - containerImage:
-        command: image_updater_program
-      policy:
-        command: policy_updater_program
+    - command: sops -e -i sops/dev/mysecret.sops.yaml
