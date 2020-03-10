@@ -17,10 +17,12 @@ helm upgrade -i flux \
 --set git.user="suresh" \
 --set git.email="sureshamk@gmail.com" \
 --set git.label="local_sync" \
---set manifestGeneration=true \
+--set sops.enabled=true \
+--set gpgKeys.secretName=gpg \
 --namespace flux \
 fluxcd/flux
 
+#--set manifestGeneration=true \
 
 helm template  flux \
 --set git.url=git@github.com:sureshamk/hello-flux-helm.git \
