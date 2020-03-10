@@ -1,4 +1,4 @@
 version: 1
 commandUpdated:
   generators:
-    - command: sops -e -i sops/dev/mysecret.sops.yaml
+    - command: sops -d -i sops/dev/mysecret.sops.yaml
