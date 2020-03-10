@@ -1,4 +1,5 @@
 version: 1
 commandUpdated:
   generators:
+    - command: pwd
     - command: sops -d -i sops/dev/mysecret.sops.yaml & kustomize build sops/dev/mysecret.sops.yaml
