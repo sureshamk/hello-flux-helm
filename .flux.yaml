@@ -1,7 +1,7 @@
 version: 1
 commandUpdated:
   generators:
-    - command: generator_command
+    - command: sops
   updaters:
     - containerImage:
         command: image_updater_program
