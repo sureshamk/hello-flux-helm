@@ -2,4 +2,5 @@ version: 1
 commandUpdated:
   generators:
     - command: pwd
-    - command: sops -d sops/dev/mysecret.sops.yaml | kubectl apply -f -
+#    - command: sops -d sops/dev/mysecret.sops.yaml | kubectl apply -f -
+    - command: sops -d sops/dev/mysecret.sops.yaml > /tmp/test.yaml
