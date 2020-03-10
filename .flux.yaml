@@ -1,0 +1,6 @@
+version: 1 # must be `1`
+patchUpdated:
+  generators:
+    - command: echo 123
+#    - command: kustomize build .
+  patchFile: flux-patch.yaml

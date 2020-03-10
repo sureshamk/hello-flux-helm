@@ -1,6 +1,6 @@
 hello:
   name: api
-  image: sureshamk/hello-flux:latest
+  image: sureshamk/hello-flux:dev-d1d5ae8
   imagePullPolicy: IfNotPresent
   ingress:
     enabled: true
