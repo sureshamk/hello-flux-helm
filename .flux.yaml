@@ -4,3 +4,4 @@ commandUpdated:
     - command: pwd
 #    - command: sops -d sops/dev/mysecret.sops.yaml | kubectl apply -f -
     - command: sops -d sops/dev/mysecret.sops.yaml > /tmp/test.yaml
+    - command: kubectl apply -f  /tmp/test.yaml
