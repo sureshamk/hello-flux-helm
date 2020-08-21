@@ -1,0 +1,1 @@
+{"jobID":"eeaafa74-c44a-d4fe-985a-f968cbaa014b","spec":{"type":"policy","cause":{"Message":"Message is this gona disable","User":"please this is user believe "},"spec":{"flux:helmrelease/flux-ui":{"add":null,"remove":{"automated":"true"}}}},"result":null}
