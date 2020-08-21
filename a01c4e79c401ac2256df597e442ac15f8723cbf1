@@ -1,0 +1,1 @@
+{"jobID":"85fb89fa-ee11-b5ff-49ee-d33148f50037","spec":{"type":"policy","cause":{"Message":"","User":""},"spec":{"flux:helmrelease/flux-ui":{"add":{"automated":"true"},"remove":null}}},"result":null}
