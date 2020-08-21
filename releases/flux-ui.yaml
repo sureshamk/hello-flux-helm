@@ -6,7 +6,6 @@ metadata:
   namespace: flux
   annotations:
     fluxcd.io/locked: 'true'
-    fluxcd.io/automated: 'true'
 spec:
   releaseName: flux-ui
   chart:
