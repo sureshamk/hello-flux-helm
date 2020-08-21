@@ -18,7 +18,7 @@ spec:
   values:
     image:
       repository: sureshamk/flux-ui
-      tag: dev-60d8574
+      tag: dev-e7a6c46
       #  pullPolicy: Always
       pullPolicy: IfNotPresent
     config:
