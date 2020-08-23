@@ -1,0 +1,1 @@
+{"jobID":"ea3add33-50fc-657a-5317-5e41cb7a8934","spec":{"type":"policy","cause":{"Message":"","User":""},"spec":{"flux:helmrelease/flux-ui":{"add":{"locked":"true","locked_msg":"","locked_user":""},"remove":{}}}},"result":null}
