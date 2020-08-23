@@ -4,8 +4,6 @@ kind: HelmRelease
 metadata:
   name: flux-ui
   namespace: flux
-  annotations:
-    fluxcd.io/locked: 'true'
 spec:
   releaseName: flux-ui
   chart:
